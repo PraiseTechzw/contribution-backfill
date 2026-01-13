@@ -3,3 +3,4 @@
 2026-01-05 13:21:32 +0400 — docs: refresh README
 2026-01-05 13:14:31 -0300 — docs: add example
 2026-01-09 09:20:45 +0100 — test: extend coverage
+2026-01-13 08:10:40 -1200 — chore: housekeeping
