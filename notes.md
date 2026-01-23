@@ -10,3 +10,4 @@
 2026-01-20 21:22:11 -1000 — refactor: tidy snippets
 2026-01-21 14:05:48 +0200 — feat: add snippet
 2026-01-22 14:19:01 +0300 — test: extend coverage
+2026-01-23 08:33:46 -1100 — docs: refresh README
