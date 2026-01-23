@@ -7,3 +7,4 @@
 2026-01-15 19:12:43 -0900 — fix: address review comment
 2026-01-20 17:23:21 -0200 — feat: add snippet
 2026-01-23 10:37:16 -0200 — refactor: tidy snippets
+2026-01-23 10:06:13 -1100 — docs: add example
