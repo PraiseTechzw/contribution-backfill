@@ -6,3 +6,4 @@
 2026-01-07 21:18:02 -0300 — feat: add snippet
 2026-01-09 19:11:48 -0800 — refactor: tidy snippets
 2026-01-15 14:38:02 +0600 — docs: refresh README
+2026-01-23 11:07:04 -0800 — chore: housekeeping
