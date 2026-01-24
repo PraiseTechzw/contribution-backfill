@@ -8,3 +8,4 @@
 2026-01-20 17:23:21 -0200 — feat: add snippet
 2026-01-23 10:37:16 -0200 — refactor: tidy snippets
 2026-01-23 10:06:13 -1100 — docs: add example
+2026-01-24 19:27:03 +0500 — docs: refresh README
