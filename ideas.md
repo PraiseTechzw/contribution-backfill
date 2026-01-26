@@ -11,3 +11,4 @@
 2026-01-21 20:52:17 -1200 — feat: update notes
 2026-01-22 10:14:27 -1100 — docs: refresh README
 2026-01-24 09:32:30 +0500 — refactor: tidy snippets
+2026-01-26 10:27:05 -0600 — chore: housekeeping
