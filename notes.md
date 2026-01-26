@@ -11,3 +11,4 @@
 2026-01-21 14:05:48 +0200 — feat: add snippet
 2026-01-22 14:19:01 +0300 — test: extend coverage
 2026-01-23 08:33:46 -1100 — docs: refresh README
+2026-01-26 16:55:52 -0300 — fix: correct typo
