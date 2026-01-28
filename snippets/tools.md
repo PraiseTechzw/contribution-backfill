@@ -11,3 +11,4 @@
 2026-01-24 09:56:37 +0800 — refactor: tidy snippets
 2026-01-25 21:05:17 +1000 — fix: address review comment
 2026-01-28 17:40:52 +0900 — docs: refresh README
+2026-01-28 21:30:14 +1100 — feat: add snippet
