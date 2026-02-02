@@ -16,3 +16,4 @@
 2026-01-30 09:45:43 +1000 — chore: housekeeping
 2026-02-02 20:32:35 +1000 — feat: update notes
 2026-02-02 21:37:19 -0500 — docs: add example
+2026-02-02 11:21:01 -0200 — fix: correct typo
