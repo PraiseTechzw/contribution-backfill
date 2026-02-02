@@ -14,3 +14,4 @@
 2026-01-26 16:55:52 -0300 — fix: correct typo
 2026-01-28 14:42:44 -0800 — fix: address review comment
 2026-01-30 09:45:43 +1000 — chore: housekeeping
+2026-02-02 20:32:35 +1000 — feat: update notes
