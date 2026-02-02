@@ -10,3 +10,4 @@
 2026-01-29 13:10:25 -0900 — feat: update notes
 2026-01-31 08:00:20 -0600 — refactor: tidy snippets
 2026-01-31 13:22:41 -0400 — feat: add snippet
+2026-02-02 10:12:49 -0400 — docs: add example
