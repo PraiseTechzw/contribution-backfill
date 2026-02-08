@@ -14,3 +14,4 @@
 2026-02-03 18:26:21 +0800 — docs: refresh README
 2026-02-03 20:54:39 -1200 — docs: add example
 2026-02-03 20:50:45 +0800 — refactor: tidy snippets
+2026-02-08 15:52:03 +1100 — fix: correct typo
