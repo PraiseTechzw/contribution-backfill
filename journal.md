@@ -19,3 +19,4 @@
 2026-02-09 13:19:28 +0900 — feat: add snippet
 2026-02-09 15:23:54 -1100 — fix: correct typo
 2026-02-11 19:19:31 -0900 — feat: add snippet
+2026-02-12 18:33:38 +0400 — docs: add example
