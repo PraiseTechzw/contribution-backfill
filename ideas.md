@@ -19,3 +19,4 @@
 2026-02-08 17:46:34 +0900 — chore: housekeeping
 2026-02-10 09:56:07 +0000 — fix: correct typo
 2026-02-11 08:30:12 +0500 — fix: address review comment
+2026-02-12 19:37:01 +0600 — docs: add example
