@@ -22,3 +22,4 @@
 2026-02-10 18:30:02 -0100 — fix: address review comment
 2026-02-10 18:47:27 +0500 — test: extend coverage
 2026-02-12 09:03:41 +0000 — chore: housekeeping
+2026-02-14 16:47:35 -1100 — feat: update notes
