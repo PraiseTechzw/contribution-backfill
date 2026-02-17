@@ -19,3 +19,4 @@
 2026-02-13 15:55:21 +1100 — chore: housekeeping
 2026-02-15 20:02:53 -1000 — docs: refresh README
 2026-02-15 15:36:28 -1100 — docs: add example
+2026-02-16 20:55:47 -0500 — refactor: tidy snippets
