@@ -21,3 +21,4 @@
 2026-02-11 19:19:31 -0900 — feat: add snippet
 2026-02-12 18:33:38 +0400 — docs: add example
 2026-02-15 08:17:44 -0800 — fix: address review comment
+2026-02-16 18:08:12 -0900 — fix: correct typo
