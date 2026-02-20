@@ -21,3 +21,4 @@
 2026-02-11 08:30:12 +0500 — fix: address review comment
 2026-02-12 19:37:01 +0600 — docs: add example
 2026-02-14 13:07:13 -0200 — fix: address review comment
+2026-02-20 12:38:11 +0100 — feat: add snippet
