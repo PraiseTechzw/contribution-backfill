@@ -25,3 +25,4 @@
 2026-02-18 20:49:24 +0100 — chore: housekeeping
 2026-02-18 18:25:31 +0300 — feat: update notes
 2026-02-20 14:22:19 -1000 — fix: correct typo
+2026-02-21 08:36:00 -0200 — feat: add snippet
