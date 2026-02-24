@@ -27,3 +27,4 @@
 2026-02-15 11:57:40 +0300 — fix: correct typo
 2026-02-15 19:57:38 +0300 — refactor: tidy snippets
 2026-02-22 20:59:39 -0800 — docs: add example
+2026-02-24 14:21:38 +0100 — test: extend coverage
