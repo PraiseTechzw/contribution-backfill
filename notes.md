@@ -21,3 +21,4 @@
 2026-02-05 17:41:05 +0500 — chore: housekeeping
 2026-02-10 18:18:54 +0300 — docs: refresh README
 2026-02-13 21:42:56 -0600 — docs: add example
+2026-02-24 21:19:47 +0600 — fix: address review comment
