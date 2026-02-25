@@ -27,3 +27,4 @@
 2026-02-20 14:22:19 -1000 — fix: correct typo
 2026-02-21 08:36:00 -0200 — feat: add snippet
 2026-02-22 12:04:47 +1100 — feat: update notes
+2026-02-24 16:07:19 -1000 — refactor: tidy snippets
