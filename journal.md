@@ -29,3 +29,4 @@
 2026-02-22 12:04:47 +1100 — feat: update notes
 2026-02-24 16:07:19 -1000 — refactor: tidy snippets
 2026-02-25 12:02:26 -0700 — fix: correct typo
+2026-02-27 21:24:59 -0900 — chore: housekeeping
