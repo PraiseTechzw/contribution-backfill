@@ -30,3 +30,4 @@
 2026-02-24 14:21:38 +0100 — test: extend coverage
 2026-02-27 12:32:54 -1000 — docs: add example
 2026-02-28 21:40:02 -1200 — docs: add example
+2026-03-01 10:30:23 -0600 — docs: refresh README
