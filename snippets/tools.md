@@ -32,3 +32,4 @@
 2026-02-28 21:40:02 -1200 — docs: add example
 2026-03-01 10:30:23 -0600 — docs: refresh README
 2026-03-03 08:32:55 -0600 — refactor: tidy snippets
+2026-03-03 10:06:17 +0100 — test: extend coverage
