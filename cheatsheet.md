@@ -30,3 +30,4 @@
 2026-02-21 16:31:57 +1100 — docs: refresh README
 2026-02-23 21:44:47 -1100 — chore: housekeeping
 2026-03-04 18:20:09 +0300 — refactor: tidy snippets
+2026-03-06 09:32:58 -1100 — fix: address review comment
