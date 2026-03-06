@@ -34,3 +34,4 @@
 2026-03-03 08:32:55 -0600 — refactor: tidy snippets
 2026-03-03 10:06:17 +0100 — test: extend coverage
 2026-03-05 18:20:37 +0400 — fix: address review comment
+2026-03-06 13:32:24 -0900 — docs: refresh README
