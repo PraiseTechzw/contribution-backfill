@@ -33,3 +33,4 @@
 2026-03-06 09:32:58 -1100 — fix: address review comment
 2026-03-07 10:58:37 -0600 — chore: housekeeping
 2026-03-07 15:53:25 +0300 — chore: housekeeping
+2026-03-08 14:13:47 +0900 — docs: add example
