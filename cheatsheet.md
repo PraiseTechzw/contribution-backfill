@@ -37,3 +37,4 @@
 2026-03-08 09:03:44 -0600 — docs: add example
 2026-03-09 12:05:56 -0400 — fix: address review comment
 2026-03-10 13:54:25 +0800 — docs: refresh README
+2026-03-10 20:44:12 -0300 — fix: correct typo
