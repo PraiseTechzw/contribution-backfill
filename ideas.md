@@ -37,3 +37,4 @@
 2026-03-12 11:37:33 -0400 — docs: refresh README
 2026-03-15 08:03:26 -1100 — test: extend coverage
 2026-03-16 10:54:05 -0200 — chore: housekeeping
+2026-03-19 17:06:01 -0100 — feat: add snippet
