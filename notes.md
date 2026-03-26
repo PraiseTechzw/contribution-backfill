@@ -36,3 +36,4 @@
 2026-03-23 16:29:51 +0400 — fix: correct typo
 2026-03-24 17:05:35 -0900 — refactor: tidy snippets
 2026-03-25 21:18:02 -0600 — chore: housekeeping
+2026-03-26 09:30:43 -0600 — docs: add example
