@@ -44,3 +44,4 @@
 2026-03-21 20:23:29 -0600 — fix: address review comment
 2026-03-24 18:19:24 -0200 — fix: address review comment
 2026-03-25 19:49:08 +0900 — test: extend coverage
+2026-03-28 16:05:17 -1100 — feat: add snippet
