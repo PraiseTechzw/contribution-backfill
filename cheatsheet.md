@@ -47,3 +47,4 @@
 2026-03-26 08:54:05 +0400 — feat: add snippet
 2026-03-28 12:40:51 +0200 — feat: update notes
 2026-03-28 10:09:37 -0200 — fix: address review comment
+2026-03-31 08:13:58 -0400 — docs: refresh README
