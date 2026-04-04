@@ -39,3 +39,4 @@
 2026-03-26 09:30:43 -0600 — docs: add example
 2026-03-28 14:39:42 -0700 — refactor: tidy snippets
 2026-04-02 19:15:26 +0100 — chore: housekeeping
+2026-04-04 12:11:25 -1100 — docs: add example
