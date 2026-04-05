@@ -42,3 +42,4 @@
 2026-04-04 20:46:22 +0700 — refactor: tidy snippets
 2026-04-04 21:48:17 +0300 — docs: add example
 2026-04-04 10:45:52 -0200 — fix: address review comment
+2026-04-05 08:49:10 -0500 — docs: refresh README
