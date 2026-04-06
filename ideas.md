@@ -46,3 +46,4 @@
 2026-04-01 12:01:47 +1000 — fix: correct typo
 2026-04-05 15:55:41 -0200 — feat: update notes
 2026-04-05 14:44:42 -0600 — fix: address review comment
+2026-04-06 19:37:50 +0000 — refactor: tidy snippets
