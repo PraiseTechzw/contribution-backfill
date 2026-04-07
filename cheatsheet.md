@@ -54,3 +54,4 @@
 2026-04-02 14:20:36 +1100 — fix: correct typo
 2026-04-05 20:50:42 -0100 — chore: housekeeping
 2026-04-06 11:12:21 +0500 — refactor: tidy snippets
+2026-04-07 12:48:38 -0700 — docs: add example
