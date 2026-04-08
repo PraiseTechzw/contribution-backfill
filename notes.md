@@ -43,3 +43,4 @@
 2026-04-08 08:24:13 +0800 — fix: address review comment
 2026-04-08 20:05:22 -0500 — docs: refresh README
 2026-04-08 14:36:06 +0400 — chore: housekeeping
+2026-04-08 09:05:25 +0300 — docs: add example
