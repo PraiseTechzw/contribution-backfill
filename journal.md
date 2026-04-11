@@ -45,3 +45,4 @@
 2026-04-05 08:49:10 -0500 — docs: refresh README
 2026-04-07 12:13:57 +0900 — docs: add example
 2026-04-09 11:48:25 -0400 — fix: address review comment
+2026-04-11 15:39:20 +0300 — feat: update notes
