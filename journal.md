@@ -48,3 +48,4 @@
 2026-04-11 15:39:20 +0300 — feat: update notes
 2026-04-11 14:39:23 -0900 — docs: refresh README
 2026-04-13 14:31:07 -1100 — fix: correct typo
+2026-04-15 12:36:17 -1100 — test: extend coverage
