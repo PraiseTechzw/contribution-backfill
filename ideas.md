@@ -50,3 +50,4 @@
 2026-04-06 14:57:02 +0500 — docs: refresh README
 2026-04-10 17:07:52 -0700 — chore: housekeeping
 2026-04-11 17:39:08 +0100 — feat: update notes
+2026-04-15 13:19:36 +0100 — docs: add example
