@@ -52,3 +52,4 @@
 2026-04-11 17:39:08 +0100 — feat: update notes
 2026-04-15 13:19:36 +0100 — docs: add example
 2026-04-15 19:34:01 -0800 — docs: refresh README
+2026-04-16 12:19:10 +0400 — refactor: tidy snippets
