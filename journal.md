@@ -49,3 +49,4 @@
 2026-04-11 14:39:23 -0900 — docs: refresh README
 2026-04-13 14:31:07 -1100 — fix: correct typo
 2026-04-15 12:36:17 -1100 — test: extend coverage
+2026-04-16 11:41:15 -0300 — docs: refresh README
