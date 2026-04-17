@@ -59,3 +59,4 @@
 2026-04-09 13:23:32 +0900 — fix: address review comment
 2026-04-14 12:21:18 -1200 — test: extend coverage
 2026-04-16 20:19:04 -0800 — fix: correct typo
+2026-04-17 13:23:52 +0600 — docs: add example
