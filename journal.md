@@ -51,3 +51,4 @@
 2026-04-15 12:36:17 -1100 — test: extend coverage
 2026-04-16 11:41:15 -0300 — docs: refresh README
 2026-04-17 16:55:59 -0700 — fix: address review comment
+2026-04-17 09:29:53 -0300 — fix: address review comment
