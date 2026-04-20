@@ -55,3 +55,4 @@
 2026-04-16 12:19:10 +0400 — refactor: tidy snippets
 2026-04-17 21:02:54 -0600 — fix: correct typo
 2026-04-18 21:28:16 +0600 — docs: add example
+2026-04-20 13:02:22 +0100 — feat: update notes
