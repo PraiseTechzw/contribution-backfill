@@ -61,3 +61,4 @@
 2026-04-16 20:19:04 -0800 — fix: correct typo
 2026-04-17 13:23:52 +0600 — docs: add example
 2026-04-20 20:08:45 +0200 — fix: correct typo
+2026-04-22 09:35:25 +0000 — docs: refresh README
