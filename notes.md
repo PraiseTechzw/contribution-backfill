@@ -54,3 +54,4 @@
 2026-04-23 20:14:41 -0900 — fix: correct typo
 2026-04-26 18:20:06 -1000 — docs: refresh README
 2026-04-26 08:36:36 +1000 — chore: housekeeping
+2026-04-26 20:45:29 +1100 — feat: add snippet
