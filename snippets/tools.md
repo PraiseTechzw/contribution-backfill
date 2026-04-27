@@ -60,3 +60,4 @@
 2026-04-22 16:08:22 +0100 — docs: refresh README
 2026-04-22 10:08:46 -0400 — docs: add example
 2026-04-24 13:05:33 +0900 — fix: correct typo
+2026-04-27 09:25:20 +0500 — test: extend coverage
