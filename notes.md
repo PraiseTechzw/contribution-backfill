@@ -52,3 +52,4 @@
 2026-04-18 10:20:34 +0500 — feat: update notes
 2026-04-20 21:02:12 +0700 — refactor: tidy snippets
 2026-04-23 20:14:41 -0900 — fix: correct typo
+2026-04-26 18:20:06 -1000 — docs: refresh README
