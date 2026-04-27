@@ -59,3 +59,4 @@
 2026-04-23 13:09:49 -0300 — feat: add snippet
 2026-04-26 10:15:22 -0300 — docs: refresh README
 2026-04-27 16:45:18 +0000 — docs: add example
+2026-04-27 10:46:18 -0900 — docs: refresh README
