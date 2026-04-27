@@ -64,3 +64,4 @@
 2026-04-22 09:35:25 +0000 — docs: refresh README
 2026-04-24 16:15:20 +0800 — fix: address review comment
 2026-04-26 18:19:23 -1000 — refactor: tidy snippets
+2026-04-27 11:24:49 -0400 — feat: update notes
