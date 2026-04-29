@@ -60,3 +60,4 @@
 2026-04-26 10:15:22 -0300 — docs: refresh README
 2026-04-27 16:45:18 +0000 — docs: add example
 2026-04-27 10:46:18 -0900 — docs: refresh README
+2026-04-29 12:47:34 +0500 — docs: add example
