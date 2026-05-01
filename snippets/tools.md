@@ -66,3 +66,4 @@
 2026-04-30 08:22:29 +1000 — fix: correct typo
 2026-05-01 13:01:58 -0200 — refactor: tidy snippets
 2026-05-01 17:13:26 -1100 — fix: address review comment
+2026-05-01 20:25:41 +1100 — test: extend coverage
