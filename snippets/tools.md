@@ -64,3 +64,4 @@
 2026-04-29 11:49:01 -0700 — docs: refresh README
 2026-04-29 13:30:44 -0800 — chore: housekeeping
 2026-04-30 08:22:29 +1000 — fix: correct typo
+2026-05-01 13:01:58 -0200 — refactor: tidy snippets
