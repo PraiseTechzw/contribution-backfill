@@ -57,3 +57,4 @@
 2026-04-26 20:45:29 +1100 — feat: add snippet
 2026-04-27 15:11:14 +1000 — feat: add snippet
 2026-04-29 20:03:24 -0700 — feat: add snippet
+2026-05-01 21:42:37 -0600 — refactor: tidy snippets
