@@ -62,3 +62,4 @@
 2026-05-07 11:55:34 -1000 — chore: housekeeping
 2026-05-08 21:36:46 -0600 — refactor: tidy snippets
 2026-05-08 12:14:55 +0800 — feat: update notes
+2026-05-09 17:37:01 -0900 — docs: refresh README
