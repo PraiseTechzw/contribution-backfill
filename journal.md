@@ -59,3 +59,4 @@
 2026-05-05 18:35:40 +0500 — fix: address review comment
 2026-05-08 20:03:07 -0900 — test: extend coverage
 2026-05-09 15:57:34 +0000 — docs: refresh README
+2026-05-10 12:23:08 +0500 — feat: add snippet
