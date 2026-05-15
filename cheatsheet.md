@@ -73,3 +73,4 @@
 2026-05-13 09:24:12 -1100 — test: extend coverage
 2026-05-14 13:56:07 +0100 — feat: add snippet
 2026-05-15 08:00:53 +1100 — feat: add snippet
+2026-05-15 12:59:23 -0100 — docs: refresh README
