@@ -64,3 +64,4 @@
 2026-05-08 12:14:55 +0800 — feat: update notes
 2026-05-09 17:37:01 -0900 — docs: refresh README
 2026-05-10 13:21:29 -0500 — feat: add snippet
+2026-05-15 13:11:07 -0400 — refactor: tidy snippets
