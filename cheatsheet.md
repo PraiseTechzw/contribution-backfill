@@ -76,3 +76,4 @@
 2026-05-15 12:59:23 -0100 — docs: refresh README
 2026-05-15 09:08:59 +0100 — docs: refresh README
 2026-05-16 12:59:09 +0000 — feat: add snippet
+2026-05-18 11:57:37 -0800 — fix: correct typo
