@@ -61,3 +61,4 @@
 2026-05-09 15:57:34 +0000 — docs: refresh README
 2026-05-10 12:23:08 +0500 — feat: add snippet
 2026-05-12 15:36:23 -1100 — fix: correct typo
+2026-05-21 21:18:03 +1100 — test: extend coverage
