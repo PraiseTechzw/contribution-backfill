@@ -72,3 +72,4 @@
 2026-05-21 11:06:28 +0000 — fix: address review comment
 2026-05-21 09:47:45 +0100 — feat: update notes
 2026-05-21 19:40:55 +0100 — docs: refresh README
+2026-05-23 08:34:12 +0600 — docs: refresh README
