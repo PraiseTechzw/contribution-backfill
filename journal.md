@@ -63,3 +63,4 @@
 2026-05-12 15:36:23 -1100 — fix: correct typo
 2026-05-21 21:18:03 +1100 — test: extend coverage
 2026-05-22 08:37:26 -0200 — feat: update notes
+2026-05-24 12:53:39 +0000 — docs: add example
