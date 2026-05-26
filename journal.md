@@ -66,3 +66,4 @@
 2026-05-24 12:53:39 +0000 — docs: add example
 2026-05-25 08:13:57 +0000 — fix: correct typo
 2026-05-26 16:35:07 -0100 — docs: add example
+2026-05-26 16:50:59 +0800 — feat: update notes
