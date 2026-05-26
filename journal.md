@@ -65,3 +65,4 @@
 2026-05-22 08:37:26 -0200 — feat: update notes
 2026-05-24 12:53:39 +0000 — docs: add example
 2026-05-25 08:13:57 +0000 — fix: correct typo
+2026-05-26 16:35:07 -0100 — docs: add example
