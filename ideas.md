@@ -73,3 +73,4 @@
 2026-05-21 09:47:45 +0100 — feat: update notes
 2026-05-21 19:40:55 +0100 — docs: refresh README
 2026-05-23 08:34:12 +0600 — docs: refresh README
+2026-05-27 17:33:07 -0400 — test: extend coverage
