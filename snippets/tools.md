@@ -84,3 +84,4 @@
 2026-05-26 14:27:07 +1100 — chore: housekeeping
 2026-05-27 21:14:18 +1000 — fix: correct typo
 2026-05-29 10:12:19 -0700 — docs: add example
+2026-05-29 20:38:09 -0900 — feat: add snippet
