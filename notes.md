@@ -69,3 +69,4 @@
 2026-05-19 08:53:29 -0700 — fix: correct typo
 2026-05-25 11:16:26 -0400 — chore: housekeeping
 2026-05-28 19:21:15 -0100 — docs: add example
+2026-05-31 20:21:55 -0400 — test: extend coverage
