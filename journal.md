@@ -71,3 +71,4 @@
 2026-05-27 10:10:05 +1100 — docs: add example
 2026-05-31 08:04:54 +0500 — feat: add snippet
 2026-06-01 11:23:38 -0100 — test: extend coverage
+2026-06-05 14:45:53 +0900 — fix: address review comment
