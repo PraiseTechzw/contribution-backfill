@@ -78,3 +78,4 @@
 2026-06-02 19:15:23 -0800 — fix: address review comment
 2026-06-06 10:08:10 +0100 — feat: add snippet
 2026-06-06 18:10:15 -0800 — chore: housekeeping
+2026-06-06 18:43:46 +1000 — docs: refresh README
