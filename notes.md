@@ -72,3 +72,4 @@
 2026-05-31 20:21:55 -0400 — test: extend coverage
 2026-06-04 09:45:01 +0900 — refactor: tidy snippets
 2026-06-05 09:27:32 -0700 — feat: update notes
+2026-06-08 09:14:46 -1000 — chore: housekeeping
