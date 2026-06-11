@@ -90,3 +90,4 @@
 2026-06-05 11:34:44 +0400 — test: extend coverage
 2026-06-07 21:34:54 +0000 — fix: address review comment
 2026-06-08 19:11:08 -0600 — chore: housekeeping
+2026-06-11 14:17:30 -0400 — docs: add example
