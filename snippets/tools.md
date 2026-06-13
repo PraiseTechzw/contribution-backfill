@@ -92,3 +92,4 @@
 2026-06-08 19:11:08 -0600 — chore: housekeeping
 2026-06-11 14:17:30 -0400 — docs: add example
 2026-06-11 13:54:39 +0000 — docs: add example
+2026-06-12 15:03:06 -1200 — fix: address review comment
