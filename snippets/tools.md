@@ -94,3 +94,4 @@
 2026-06-11 13:54:39 +0000 — docs: add example
 2026-06-12 15:03:06 -1200 — fix: address review comment
 2026-06-16 11:38:12 -0700 — chore: housekeeping
+2026-06-16 14:24:06 +1000 — docs: refresh README
