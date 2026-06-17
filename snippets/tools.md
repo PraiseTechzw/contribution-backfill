@@ -95,3 +95,4 @@
 2026-06-12 15:03:06 -1200 — fix: address review comment
 2026-06-16 11:38:12 -0700 — chore: housekeeping
 2026-06-16 14:24:06 +1000 — docs: refresh README
+2026-06-17 12:48:59 -0600 — chore: housekeeping
