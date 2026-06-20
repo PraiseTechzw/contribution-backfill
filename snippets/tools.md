@@ -97,3 +97,4 @@
 2026-06-16 14:24:06 +1000 — docs: refresh README
 2026-06-17 12:48:59 -0600 — chore: housekeeping
 2026-06-17 13:33:38 +0700 — test: extend coverage
+2026-06-19 20:02:06 -0600 — refactor: tidy snippets
