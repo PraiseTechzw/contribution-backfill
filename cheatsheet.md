@@ -95,3 +95,4 @@
 2026-06-11 11:20:44 +0800 — fix: correct typo
 2026-06-14 16:26:23 -0200 — chore: housekeeping
 2026-06-17 18:05:34 +0900 — feat: update notes
+2026-06-20 20:10:27 -0500 — docs: refresh README
