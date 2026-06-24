@@ -78,3 +78,4 @@
 2026-06-14 19:09:58 +0800 — chore: housekeeping
 2026-06-16 17:43:03 -0900 — fix: address review comment
 2026-06-16 11:34:21 -1200 — docs: add example
+2026-06-24 16:54:21 +1000 — fix: address review comment
