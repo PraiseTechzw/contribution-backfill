@@ -80,3 +80,4 @@
 2026-06-22 13:59:18 -0100 — fix: address review comment
 2026-06-23 17:15:05 -0700 — test: extend coverage
 2026-06-24 12:27:37 +0000 — fix: address review comment
+2026-06-25 15:39:53 -0600 — docs: refresh README
