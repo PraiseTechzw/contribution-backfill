@@ -102,3 +102,4 @@
 2026-06-23 14:18:43 -1100 — feat: add snippet
 2026-06-24 17:55:46 -0500 — refactor: tidy snippets
 2026-06-28 19:00:50 -1000 — fix: correct typo
+2026-06-28 10:46:39 -0300 — test: extend coverage
