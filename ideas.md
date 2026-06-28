@@ -91,3 +91,4 @@
 2026-06-21 09:51:36 -0200 — feat: add snippet
 2026-06-24 12:33:49 +0100 — fix: address review comment
 2026-06-26 14:30:32 +1000 — chore: housekeeping
+2026-06-27 19:43:39 -0500 — refactor: tidy snippets
