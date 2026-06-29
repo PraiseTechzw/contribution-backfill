@@ -101,3 +101,4 @@
 2026-06-23 08:28:43 -1000 — feat: add snippet
 2026-06-25 18:03:09 -0300 — docs: refresh README
 2026-06-26 20:36:31 +0000 — fix: correct typo
+2026-06-29 19:59:58 +0800 — feat: update notes
