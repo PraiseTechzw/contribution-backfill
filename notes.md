@@ -84,3 +84,4 @@
 2026-06-26 16:33:04 -1100 — refactor: tidy snippets
 2026-06-28 10:18:19 -1100 — refactor: tidy snippets
 2026-06-29 08:35:13 +0400 — test: extend coverage
+2026-06-29 16:24:46 -0300 — fix: address review comment
