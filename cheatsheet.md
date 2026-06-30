@@ -102,3 +102,4 @@
 2026-06-25 18:03:09 -0300 — docs: refresh README
 2026-06-26 20:36:31 +0000 — fix: correct typo
 2026-06-29 19:59:58 +0800 — feat: update notes
+2026-06-30 14:20:04 +1000 — docs: add example
