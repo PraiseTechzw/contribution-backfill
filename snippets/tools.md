@@ -103,3 +103,4 @@
 2026-06-24 17:55:46 -0500 — refactor: tidy snippets
 2026-06-28 19:00:50 -1000 — fix: correct typo
 2026-06-28 10:46:39 -0300 — test: extend coverage
+2026-06-30 11:06:42 +0800 — docs: add example
