@@ -94,3 +94,4 @@
 2026-06-27 19:43:39 -0500 — refactor: tidy snippets
 2026-06-27 14:47:30 +0500 — feat: add snippet
 2026-06-28 14:00:59 +0300 — refactor: tidy snippets
+2026-07-01 20:58:37 -0600 — docs: add example
