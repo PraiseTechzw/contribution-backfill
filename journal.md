@@ -83,3 +83,4 @@
 2026-06-25 15:39:53 -0600 — docs: refresh README
 2026-06-25 19:31:52 -0500 — docs: refresh README
 2026-06-30 18:10:33 +0400 — docs: refresh README
+2026-07-03 20:09:04 -1100 — test: extend coverage
