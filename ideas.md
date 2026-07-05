@@ -96,3 +96,4 @@
 2026-06-28 14:00:59 +0300 — refactor: tidy snippets
 2026-07-01 20:58:37 -0600 — docs: add example
 2026-07-04 17:10:06 -0700 — refactor: tidy snippets
+2026-07-05 21:39:29 +0000 — docs: refresh README
