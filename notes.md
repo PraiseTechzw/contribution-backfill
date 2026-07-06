@@ -88,3 +88,4 @@
 2026-06-30 11:39:43 +0400 — docs: add example
 2026-06-30 18:46:23 -1100 — feat: add snippet
 2026-07-02 10:56:08 -0100 — feat: add snippet
+2026-07-05 18:52:27 -0700 — docs: refresh README
