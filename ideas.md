@@ -104,3 +104,4 @@
 2026-07-15 16:55:48 +0700 — fix: correct typo
 2026-07-15 12:24:45 +0600 — refactor: tidy snippets
 2026-07-16 21:22:49 +0300 — fix: address review comment
+2026-07-17 14:33:07 +0900 — docs: add example
