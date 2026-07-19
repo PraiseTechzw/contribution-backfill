@@ -105,3 +105,4 @@
 2026-07-15 12:24:45 +0600 — refactor: tidy snippets
 2026-07-16 21:22:49 +0300 — fix: address review comment
 2026-07-17 14:33:07 +0900 — docs: add example
+2026-07-19 11:05:26 +0500 — docs: refresh README
