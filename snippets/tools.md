@@ -115,3 +115,4 @@
 2026-07-15 10:13:55 +1100 — feat: add snippet
 2026-07-15 13:09:06 -1000 — chore: housekeeping
 2026-07-17 20:06:29 -0100 — docs: add example
+2026-07-21 11:57:55 +0600 — refactor: tidy snippets
