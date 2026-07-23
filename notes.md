@@ -98,3 +98,4 @@
 2026-07-18 14:56:14 -0800 — feat: add snippet
 2026-07-20 20:12:47 +1100 — chore: housekeeping
 2026-07-23 18:32:12 +1000 — chore: housekeeping
+2026-07-23 12:36:04 +0500 — docs: add example
