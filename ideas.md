@@ -106,3 +106,4 @@
 2026-07-16 21:22:49 +0300 — fix: address review comment
 2026-07-17 14:33:07 +0900 — docs: add example
 2026-07-19 11:05:26 +0500 — docs: refresh README
+2026-07-24 20:51:07 -0100 — test: extend coverage
