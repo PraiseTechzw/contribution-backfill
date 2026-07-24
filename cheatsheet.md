@@ -111,3 +111,4 @@
 2026-07-18 19:16:52 +0600 — docs: refresh README
 2026-07-19 18:17:00 +0800 — chore: housekeeping
 2026-07-24 15:31:08 +0200 — chore: housekeeping
+2026-07-24 10:52:00 +0000 — test: extend coverage
