@@ -101,3 +101,4 @@
 2026-07-23 12:36:04 +0500 — docs: add example
 2026-07-23 13:17:23 +0400 — chore: housekeeping
 2026-07-25 12:28:55 -0300 — refactor: tidy snippets
+2026-07-26 09:19:29 +0200 — fix: address review comment
