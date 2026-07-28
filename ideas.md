@@ -108,3 +108,4 @@
 2026-07-19 11:05:26 +0500 — docs: refresh README
 2026-07-24 20:51:07 -0100 — test: extend coverage
 2026-07-26 14:41:11 +0700 — docs: refresh README
+2026-07-27 20:52:45 -0500 — refactor: tidy snippets
