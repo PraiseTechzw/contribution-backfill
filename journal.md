@@ -102,3 +102,4 @@
 2026-07-26 21:06:13 -0100 — refactor: tidy snippets
 2026-07-26 16:16:07 +0200 — refactor: tidy snippets
 2026-07-27 10:10:44 +0700 — fix: correct typo
+2026-07-30 17:23:03 +0700 — docs: add example
