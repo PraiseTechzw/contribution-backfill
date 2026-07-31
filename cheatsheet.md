@@ -114,3 +114,4 @@
 2026-07-24 10:52:00 +0000 — test: extend coverage
 2026-07-24 14:21:19 -0700 — fix: correct typo
 2026-07-29 15:05:16 +0700 — fix: correct typo
+2026-07-31 16:32:53 +0500 — docs: refresh README
