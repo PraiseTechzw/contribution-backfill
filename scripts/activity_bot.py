@@ -30,7 +30,6 @@ def run(cmd: list[str], retries: int = 3, **kw) -> str:
         if result.returncode == 0:
             return result.stdout.strip()
         last_err = result.stderr
-        # only retry network-ish failures; fail fast on everything else
         transient = any(
             s in last_err
             for s in ("Could not resolve host", "Connection", "timeout", "Temporary failure")
@@ -78,7 +77,6 @@ class ActivityBot:
             if weekdays_only and d.weekday() >= 5:
                 d += timedelta(days=1)
                 continue
-            # 1-3 commits per day, varied hours (9:00–18:00)
             for _ in range(self.rng.randint(1, 3)):
                 if len(stamps) >= count:
                     break
@@ -90,11 +88,15 @@ class ActivityBot:
 
     # ---------- push / branch ----------
 
-    def push(self, branch: str, remote: str = "origin") -> None:
+    def push(self, branch: str, remote: str = "origin", force: bool = True) -> None:
+        """Push branch. force=True overwrites stale remote fixture history (--force-with-lease)."""
         if self.dry_run:
-            print(f"[dry-run] git push -u {remote} {branch}")
+            print(f"[dry-run] git push -u {remote} {branch}" + (" --force-with-lease" if force else ""))
             return
-        run(["git", "-C", str(self.repo_dir), "push", "-u", remote, branch])
+        cmd = ["git", "-C", str(self.repo_dir), "push", "-u", remote, branch]
+        if force:
+            cmd.append("--force-with-lease")
+        run(cmd)
 
     def create_branch(self, branch: str) -> None:
         if self.dry_run:
@@ -119,7 +121,6 @@ class ActivityBot:
 
     def default_branch(self, remote: str = "origin") -> str:
         """Detect the remote's default branch. git first (local), gh as fallback."""
-        # 1) Local git: ask the remote directly
         try:
             out = run(["git", "-C", str(self.repo_dir), "remote", "show", remote])
             for line in out.splitlines():
@@ -129,8 +130,6 @@ class ActivityBot:
                         return branch
         except RuntimeError:
             pass
-
-        # 2) gh fallback, pinned to the exact repo from the remote URL
         try:
             url = run(["git", "-C", str(self.repo_dir), "remote", "get-url", remote])
             slug = url.removeprefix("https://github.com/").removeprefix("git@github.com:")
@@ -141,18 +140,11 @@ class ActivityBot:
                 return branch
         except RuntimeError:
             pass
-
-        # 3) Last resort: local ref
-        try:
-            return run(["git", "-C", str(self.repo_dir),
-                        "symbolic-ref", "refs/remotes/origin/HEAD"]).rsplit("/", 1)[-1]
-        except RuntimeError:
-            raise RuntimeError("Could not detect default branch; pass --base explicitly")
+        raise RuntimeError("Could not detect default branch; pass --base explicitly")
 
     def create_pull_request(self, branch: str, base: str, title: str, body: str) -> str:
-        out = self.gh("pr", "create", "--base", base, "--head", branch,
-                      "--title", title, "--body", body)
-        return out  # gh prints the PR URL
+        return self.gh("pr", "create", "--base", base, "--head", branch,
+                       "--title", title, "--body", body)
 
     def create_issue(self, title: str, body: str) -> str:
         return self.gh("issue", "create", "--title", title, "--body", body)
@@ -179,6 +171,8 @@ def main() -> None:
     parser.add_argument("--reviews", type=int, default=0, help="review comments on the PR")
     parser.add_argument("--no-pr", action="store_true", help="skip PR creation")
     parser.add_argument("--push", action="store_true", help="push branch (implied by PR)")
+    parser.add_argument("--no-force-push", action="store_true",
+                        help="use plain push instead of --force-with-lease")
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
 
@@ -196,17 +190,12 @@ def main() -> None:
         bot.commit(when, MESSAGES[bot.commit_count % len(MESSAGES)], fixture)
 
     if not bot.dry_run:
-        # Preflight: fail fast if the branch has no commits ahead of base
         ahead = run(["git", "-C", str(args.repo), "rev-list", "--count", f"{base}..{args.branch}"])
         if ahead == "0":
-            raise RuntimeError(
-                f"No commits between {base} and {args.branch}; refusing to push/open PR. "
-                f"Delete the branch and re-run: git branch -D {args.branch} "
-                f"&& git push origin --delete {args.branch}"
-            )
+            raise RuntimeError(f"No commits between {base} and {args.branch}; nothing to do")
 
     if args.push or not args.no_pr:
-        bot.push(args.branch)
+        bot.push(args.branch, force=not args.no_force_push)
 
     pr_url = None
     if not args.no_pr:
