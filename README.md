@@ -10,10 +10,13 @@ The generator creates dated, contribution-shaped records for local parser and an
 
 ```sh
 python3 scripts/generate_fixture.py --count 10000 --output /tmp/contribution-fixture.md
+python3 scripts/generate_fixture.py --count 30 --weekdays-only
 python3 -m unittest discover -s tests -v
 ```
 
 The default output is `tmp/contribution-fixture.md`. Keep generated fixtures out of Git unless a test explicitly needs a checked-in sample.
+
+Use `--weekdays-only` to generate a workday schedule and exercise date-gap handling around weekends.
 
 ## Data format
 
