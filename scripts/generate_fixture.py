@@ -12,7 +12,7 @@ MESSAGES = (
     "feat: add snippet",
     "fix: correct typo",
     "refactor: tidy snippets",
-    "test: extend coverage",
+    "test: extend coverage e",
 )
 
 
