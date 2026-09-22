@@ -1,28 +1,28 @@
 import unittest
 from datetime import date
+from pathlib import Path
 
-from scripts.generate_fixture import build_entries
+from scripts.generate_fixture import ActivityBot
 
 
-class BuildEntriesTests(unittest.TestCase):
-    def test_generates_requested_count_and_consecutive_dates(self) -> None:
-        entries = build_entries(3, date(2026, 1, 1))
+class GenerateCommitsTests(unittest.TestCase):
+    def test_generates_requested_count_with_deterministic_seed(self) -> None:
+        bot = ActivityBot(Path("."), seed=7, dry_run=True)
 
-        self.assertEqual(len(entries), 3)
-        self.assertTrue(all("TEST FIXTURE ONLY" in entry for entry in entries))
-        self.assertTrue(entries[0].startswith("2026-01-01"))
-        self.assertTrue(entries[1].startswith("2026-01-02"))
-        self.assertTrue(entries[2].startswith("2026-01-03"))
+        stamps = bot.generate_commits(5, date(2026, 9, 22), weekdays_only=False)
+        repeat = ActivityBot(Path("."), seed=7, dry_run=True).generate_commits(
+            5, date(2026, 9, 22), weekdays_only=False
+        )
 
-    def test_rejecting_zero_count_is_owned_by_cli(self) -> None:
-        self.assertEqual(len(build_entries(0, date(2026, 1, 1))), 0)
+        self.assertEqual(len(stamps), 5)
+        self.assertEqual(stamps, repeat)
 
     def test_weekdays_only_skips_weekends(self) -> None:
-        entries = build_entries(3, date(2026, 1, 2), weekdays_only=True)
+        bot = ActivityBot(Path("."), seed=7, dry_run=True)
 
-        self.assertTrue(entries[0].startswith("2026-01-02"))
-        self.assertTrue(entries[1].startswith("2026-01-05"))
-        self.assertTrue(entries[2].startswith("2026-01-06"))
+        stamps = bot.generate_commits(10, date(2026, 9, 26), weekdays_only=True)
+
+        self.assertTrue(all(stamp.weekday() < 5 for stamp in stamps))
 
 
 if __name__ == "__main__":
