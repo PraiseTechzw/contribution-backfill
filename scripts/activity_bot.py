@@ -118,12 +118,36 @@ class ActivityBot:
         return run(cmd + (["--input", "-"] if input_json else []), input=input_json or None)
 
     def default_branch(self, remote: str = "origin") -> str:
-        """Ask GitHub for the repo's default branch (handles master vs main)."""
+        """Detect the remote's default branch. git first (local), gh as fallback."""
+        # 1) Local git: ask the remote directly
         try:
-            return self.gh("repo", "view", "--json", "defaultBranchRef",
-                           "--jq", ".defaultBranchRef.name") or "main"
+            out = run(["git", "-C", str(self.repo_dir), "remote", "show", remote])
+            for line in out.splitlines():
+                if "HEAD branch" in line:
+                    branch = line.rsplit(":", 1)[1].strip()
+                    if branch and branch != "(unknown)":
+                        return branch
         except RuntimeError:
-            return "main"
+            pass
+
+        # 2) gh fallback, pinned to the exact repo from the remote URL
+        try:
+            url = run(["git", "-C", str(self.repo_dir), "remote", "get-url", remote])
+            slug = url.removeprefix("https://github.com/").removeprefix("git@github.com:")
+            slug = slug.removesuffix(".git").removesuffix("/")
+            branch = self.gh("repo", "view", slug, "--json", "defaultBranchRef",
+                             "--jq", ".defaultBranchRef.name")
+            if branch:
+                return branch
+        except RuntimeError:
+            pass
+
+        # 3) Last resort: local ref
+        try:
+            return run(["git", "-C", str(self.repo_dir),
+                        "symbolic-ref", "refs/remotes/origin/HEAD"]).rsplit("/", 1)[-1]
+        except RuntimeError:
+            raise RuntimeError("Could not detect default branch; pass --base explicitly")
 
     def create_pull_request(self, branch: str, base: str, title: str, body: str) -> str:
         out = self.gh("pr", "create", "--base", base, "--head", branch,
@@ -161,6 +185,8 @@ def main() -> None:
     bot = ActivityBot(args.repo, seed=args.seed, dry_run=args.dry_run)
 
     base = args.base or bot.default_branch()
+    if base == args.branch:
+        raise RuntimeError(f"Base branch equals working branch ({base!r}); pass --base explicitly")
     print(f"Using base branch: {base}")
 
     stamps = bot.generate_commits(args.count, args.start, args.weekdays_only)
