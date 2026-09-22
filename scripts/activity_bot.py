@@ -7,10 +7,9 @@ Requires: git, gh (GitHub CLI) authenticated with `gh auth login`.
 from __future__ import annotations
 
 import argparse
-import json
 import random
 import subprocess
-import sys
+import time
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
@@ -23,12 +22,23 @@ MESSAGES = (
 )
 
 
-def run(cmd: list[str], **kw) -> str:
-    """Run a command, raising with stderr context on failure."""
-    result = subprocess.run(cmd, capture_output=True, text=True, **kw)
-    if result.returncode != 0:
-        raise RuntimeError(f"{' '.join(cmd)} failed:\n{result.stderr}")
-    return result.stdout.strip()
+def run(cmd: list[str], retries: int = 3, **kw) -> str:
+    """Run a command, retrying transient failures (network/DNS), raising with stderr context."""
+    last_err = ""
+    for attempt in range(retries):
+        result = subprocess.run(cmd, capture_output=True, text=True, **kw)
+        if result.returncode == 0:
+            return result.stdout.strip()
+        last_err = result.stderr
+        # only retry network-ish failures; fail fast on everything else
+        transient = any(
+            s in last_err
+            for s in ("Could not resolve host", "Connection", "timeout", "Temporary failure")
+        )
+        if not transient or attempt == retries - 1:
+            break
+        time.sleep(2**attempt)
+    raise RuntimeError(f"{' '.join(cmd)} failed:\n{last_err}")
 
 
 class ActivityBot:
@@ -102,8 +112,18 @@ class ActivityBot:
                 return "https://github.com/example/example/pull/1"
             if args[:2] == ("issue", "create"):
                 return "https://github.com/example/example/issues/1"
+            if args[:2] == ("repo", "view"):
+                return "main"
             return ""
         return run(cmd + (["--input", "-"] if input_json else []), input=input_json or None)
+
+    def default_branch(self, remote: str = "origin") -> str:
+        """Ask GitHub for the repo's default branch (handles master vs main)."""
+        try:
+            return self.gh("repo", "view", "--json", "defaultBranchRef",
+                           "--jq", ".defaultBranchRef.name") or "main"
+        except RuntimeError:
+            return "main"
 
     def create_pull_request(self, branch: str, base: str, title: str, body: str) -> str:
         out = self.gh("pr", "create", "--base", base, "--head", branch,
@@ -129,7 +149,8 @@ def main() -> None:
     parser.add_argument("--weekdays-only", action="store_true")
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--branch", default="activity/fixture")
-    parser.add_argument("--base", default="main")
+    parser.add_argument("--base", default="",
+                        help="base branch (default: auto-detect remote default, e.g. master/main)")
     parser.add_argument("--issues", type=int, default=0, help="number of issues to open")
     parser.add_argument("--reviews", type=int, default=0, help="review comments on the PR")
     parser.add_argument("--no-pr", action="store_true", help="skip PR creation")
@@ -139,11 +160,24 @@ def main() -> None:
 
     bot = ActivityBot(args.repo, seed=args.seed, dry_run=args.dry_run)
 
+    base = args.base or bot.default_branch()
+    print(f"Using base branch: {base}")
+
     stamps = bot.generate_commits(args.count, args.start, args.weekdays_only)
     fixture = args.repo / "activity-log.md"
     bot.create_branch(args.branch)
     for when in stamps:
-        bot.commit(when, MESSAGES[len(stamps) % len(MESSAGES)], fixture)
+        bot.commit(when, MESSAGES[bot.commit_count % len(MESSAGES)], fixture)
+
+    if not bot.dry_run:
+        # Preflight: fail fast if the branch has no commits ahead of base
+        ahead = run(["git", "-C", str(args.repo), "rev-list", "--count", f"{base}..{args.branch}"])
+        if ahead == "0":
+            raise RuntimeError(
+                f"No commits between {base} and {args.branch}; refusing to push/open PR. "
+                f"Delete the branch and re-run: git branch -D {args.branch} "
+                f"&& git push origin --delete {args.branch}"
+            )
 
     if args.push or not args.no_pr:
         bot.push(args.branch)
@@ -151,7 +185,7 @@ def main() -> None:
     pr_url = None
     if not args.no_pr:
         pr_url = bot.create_pull_request(
-            args.branch, args.base,
+            args.branch, base,
             "Fixture: activity test data",
             "Automated test data. Do not merge — fixture branch.",
         )
