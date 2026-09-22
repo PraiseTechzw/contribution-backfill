@@ -23,7 +23,7 @@ MESSAGES = (
 
 
 def run(cmd: list[str], retries: int = 3, **kw) -> str:
-    """Run a command, retrying transient failures (network/DNS), raising with stderr context."""
+    """Run a command, retrying transient network failures, raising with stderr context."""
     last_err = ""
     for attempt in range(retries):
         result = subprocess.run(cmd, capture_output=True, text=True, **kw)
@@ -32,11 +32,12 @@ def run(cmd: list[str], retries: int = 3, **kw) -> str:
         last_err = result.stderr
         transient = any(
             s in last_err
-            for s in ("Could not resolve host", "Connection", "timeout", "Temporary failure")
+            for s in ("Could not resolve host", "Connection", "timeout",
+                      "Temporary failure", "transfer closed")
         )
         if not transient or attempt == retries - 1:
             break
-        time.sleep(2**attempt)
+        time.sleep(2 ** attempt)
     raise RuntimeError(f"{' '.join(cmd)} failed:\n{last_err}")
 
 
@@ -61,7 +62,8 @@ class ActivityBot:
             encoding="utf-8",
         )
         env_date = when.strftime("%Y-%m-%dT%H:%M:%S+00:00")
-        run(["git", "-C", str(self.repo_dir), "add", str(file_path.relative_to(self.repo_dir))])
+        run(["git", "-C", str(self.repo_dir), "add",
+             str(file_path.relative_to(self.repo_dir))])
         run(["git", "-C", str(self.repo_dir), "-c", "commit.gpgsign=false", "commit",
              "--date", env_date, "-m", message],
             env={"GIT_AUTHOR_DATE": env_date,
@@ -77,6 +79,7 @@ class ActivityBot:
             if weekdays_only and d.weekday() >= 5:
                 d += timedelta(days=1)
                 continue
+            # 1-3 commits per day, varied hours (9:00–18:00)
             for _ in range(self.rng.randint(1, 3)):
                 if len(stamps) >= count:
                     break
@@ -91,7 +94,8 @@ class ActivityBot:
     def push(self, branch: str, remote: str = "origin", force: bool = True) -> None:
         """Push branch. force=True overwrites stale remote fixture history (--force-with-lease)."""
         if self.dry_run:
-            print(f"[dry-run] git push -u {remote} {branch}" + (" --force-with-lease" if force else ""))
+            print(f"[dry-run] git push -u {remote} {branch}"
+                  + (" --force-with-lease" if force else ""))
             return
         cmd = ["git", "-C", str(self.repo_dir), "push", "-u", remote, branch]
         if force:
@@ -103,6 +107,22 @@ class ActivityBot:
             print(f"[dry-run] git checkout -B {branch}")
             return
         run(["git", "-C", str(self.repo_dir), "checkout", "-B", branch])
+
+    def remote_branch_exists(self, branch: str, remote: str = "origin") -> bool:
+        if self.dry_run:
+            return False
+        return bool(run(["git", "-C", str(self.repo_dir),
+                         "ls-remote", "--heads", remote, branch]).strip())
+
+    def ensure_base_on_remote(self, base: str, remote: str = "origin") -> None:
+        """Push the base branch to the remote if it only exists locally."""
+        if self.dry_run:
+            print(f"[dry-run] ensure {base} exists on {remote}")
+            return
+        run(["git", "-C", str(self.repo_dir), "fetch", remote, "--prune"])
+        if not self.remote_branch_exists(base, remote):
+            print(f"Base branch {base!r} missing on remote — pushing it first")
+            run(["git", "-C", str(self.repo_dir), "push", "-u", remote, base])
 
     # ---------- GitHub via gh CLI ----------
 
@@ -121,6 +141,7 @@ class ActivityBot:
 
     def default_branch(self, remote: str = "origin") -> str:
         """Detect the remote's default branch. git first (local), gh as fallback."""
+        # 1) Local git: ask the remote directly
         try:
             out = run(["git", "-C", str(self.repo_dir), "remote", "show", remote])
             for line in out.splitlines():
@@ -130,6 +151,8 @@ class ActivityBot:
                         return branch
         except RuntimeError:
             pass
+
+        # 2) gh fallback, pinned to the exact repo slug from the remote URL
         try:
             url = run(["git", "-C", str(self.repo_dir), "remote", "get-url", remote])
             slug = url.removeprefix("https://github.com/").removeprefix("git@github.com:")
@@ -140,6 +163,7 @@ class ActivityBot:
                 return branch
         except RuntimeError:
             pass
+
         raise RuntimeError("Could not detect default branch; pass --base explicitly")
 
     def create_pull_request(self, branch: str, base: str, title: str, body: str) -> str:
@@ -161,12 +185,13 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Generate commits, PRs, issues, reviews.")
     parser.add_argument("--repo", type=Path, required=True, help="path to local git repo")
     parser.add_argument("--count", type=int, default=100)
-    parser.add_argument("--start", type=date.fromisoformat, default=date.today() - timedelta(days=60))
+    parser.add_argument("--start", type=date.fromisoformat,
+                        default=date.today() - timedelta(days=60))
     parser.add_argument("--weekdays-only", action="store_true")
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--branch", default="activity/fixture")
     parser.add_argument("--base", default="",
-                        help="base branch (default: auto-detect remote default, e.g. master/main)")
+                        help="base branch (default: auto-detect remote default)")
     parser.add_argument("--issues", type=int, default=0, help="number of issues to open")
     parser.add_argument("--reviews", type=int, default=0, help="review comments on the PR")
     parser.add_argument("--no-pr", action="store_true", help="skip PR creation")
@@ -178,11 +203,14 @@ def main() -> None:
 
     bot = ActivityBot(args.repo, seed=args.seed, dry_run=args.dry_run)
 
+    # Resolve base branch; guard against base == working branch
     base = args.base or bot.default_branch()
     if base == args.branch:
-        raise RuntimeError(f"Base branch equals working branch ({base!r}); pass --base explicitly")
+        raise RuntimeError(f"Base branch equals working branch ({base!r}); "
+                           f"pass --base explicitly")
     print(f"Using base branch: {base}")
 
+    # Create commits
     stamps = bot.generate_commits(args.count, args.start, args.weekdays_only)
     fixture = args.repo / "activity-log.md"
     bot.create_branch(args.branch)
@@ -190,13 +218,20 @@ def main() -> None:
         bot.commit(when, MESSAGES[bot.commit_count % len(MESSAGES)], fixture)
 
     if not bot.dry_run:
-        ahead = run(["git", "-C", str(args.repo), "rev-list", "--count", f"{base}..{args.branch}"])
+        # Preflight: fail fast if the branch has no commits ahead of base
+        ahead = run(["git", "-C", str(args.repo), "rev-list", "--count",
+                     f"{base}..{args.branch}"])
         if ahead == "0":
             raise RuntimeError(f"No commits between {base} and {args.branch}; nothing to do")
 
+    # Ensure base branch exists on remote (avoids 'Base ref must be a branch' error)
+    bot.ensure_base_on_remote(base)
+
+    # Push fixture branch (force-with-lease overwrites stale remote fixture history)
     if args.push or not args.no_pr:
         bot.push(args.branch, force=not args.no_force_push)
 
+    # Create PR
     pr_url = None
     if not args.no_pr:
         pr_url = bot.create_pull_request(
@@ -209,6 +244,7 @@ def main() -> None:
         for i in range(args.reviews):
             bot.add_review(pr_number, f"Automated review note #{i + 1} (test fixture).")
 
+    # Create issues
     for i in range(args.issues):
         issue_url = bot.create_issue(f"Fixture issue #{i + 1}",
                                      "Automated test issue — safe to close.")
