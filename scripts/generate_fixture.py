@@ -16,9 +16,7 @@ MESSAGES = (
 )
 
 
-def build_entries(
-    count: int, start: date, weekdays_only: bool = False
-) -> list[str]:
+def build_entries(count: int, start: date, weekdays_only: bool = False) -> list[str]:
     entries: list[str] = []
     entry_date = start
     while len(entries) < count:
@@ -26,9 +24,7 @@ def build_entries(
             entry_date += timedelta(days=1)
             continue
         message = MESSAGES[len(entries) % len(MESSAGES)]
-        entries.append(
-            f"{entry_date.isoformat()} 12:00:00 +0000 - TEST FIXTURE ONLY — {message}"
-        )
+        entries.append(f"{entry_date.isoformat()} 12:00:00 +0000 - TEST FIXTURE ONLY — {message}")
         entry_date += timedelta(days=1)
     return entries
 
@@ -39,11 +35,7 @@ def main() -> None:
     )
     parser.add_argument("--count", type=int, default=10_000)
     parser.add_argument("--start", type=date.fromisoformat, default=date(2026, 1, 1))
-    parser.add_argument(
-        "--weekdays-only",
-        action="store_true",
-        help="emit entries on Monday through Friday only",
-    )
+    parser.add_argument("--weekdays-only", action="store_true")
     parser.add_argument("--output", type=Path, default=Path("tmp/contribution-fixture.md"))
     args = parser.parse_args()
 
